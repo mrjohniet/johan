@@ -1,0 +1,12 @@
+
+<div class="about">
+
+  <h2>Joyas</h2>
+  <ul *ngIf="joyas$ | async as joyas">
+    <li *ngFor="let joya of joyas">
+      {{joya.nombre}}
+    </li>
+  </ul>
+</div>
+
+
