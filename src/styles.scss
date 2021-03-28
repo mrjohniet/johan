@@ -3,12 +3,13 @@
 
 
 @import "~@angular/material/theming";
+@import "~bootstrap";
 
 // Include non-theme styles for core.
 @include mat-core();
 
 // Define a theme.
-$primary: mat-palette($mat-gray);
+$primary: mat-palette($mat-green);
 
 $mat-custom-theme: (
   50: #fff3e0,
@@ -44,10 +45,36 @@ $mat-custom-theme: (
 );
 
 // Define a theme.
-$primary: mat-palette($mat-indigo);
+$primary: mat-palette($mat-green);
 $accent:  mat-palette($mat-custom-theme, A200, A100, A400); 
 
 $theme: mat-light-theme($primary, $accent);
 
 // Include all theme styles for the components.
 @include angular-material-theme($theme);
+
+.mat-drawer-content{
+  // background: url(https://firebasestorage.googleapis.com/v0/b/johan-9cedc.appspot.com/o/hulk-background.jpg?alt=media&token=8fbfbc25-870c-44f5-ad60-e67eda61f8ae);
+}
+
+.mat-card {
+  .mat-card-header-text{
+    margin:0 auto;
+  }
+}
+
+.box-form { 
+    padding: 3rem 2rem;
+    border: 2px solid #e7e7e7;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    .text{
+      margin-top: -4.5rem;
+      margin-left: 1rem;
+      background: #fff;
+      width: fit-content;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+}

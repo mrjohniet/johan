@@ -1,0 +1,68 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-card class="mt-5">
+    <mat-card-header>
+      <mat-card-title>Insertar Inventario</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="px-5">
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-form-field class="w-100">
+              <mat-label>Descripción del inventario</mat-label>
+              <input formControlName="nombre" matInput placeholder="Ex. Camiseta con estampado de Hulk" aria-label="Nombre inventario">
+            </mat-form-field>
+          </div>
+          <div class="col-lg-6">
+            <mat-form-field class="w-100">
+              <mat-label>Precio Unitario</mat-label>
+              <input formControlName="precioUnitario" type="number" min="0" matInput placeholder="Ex. 150000" aria-label="Precio unitario inventario">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-form-field class="w-100">
+              <mat-label>Talla</mat-label>
+              <mat-select  formControlName="talla" name="talla">
+                <mat-option *ngFor="let talla of tallas" [value]="talla">
+                  {{talla}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-lg-6">
+            <mat-form-field class="w-100">
+              <mat-label>Existencias</mat-label>
+              <input type="number" formControlName="existencias" min="0" matInput placeholder="Ex. 150000" aria-label="Existencias inventario">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="box-form file btn mt-3">
+              <h2 class="text">Imagen de inventario</h2>
+              <input type="file" (change)="uploadFile($event)" aria-label="Cargar imagen de inventario">
+              <div *ngIf="(uploadPercent$ | async ) as porcentaje" class="upload-progress mt-2">
+                <mat-progress-bar
+                    class="progress-bar"
+                    color="primary"
+                    mode="determinate"
+                    [value]="porcentaje">
+                </mat-progress-bar>
+                <span>{{porcentaje / 100 | percent}}</span>
+              </div>
+              <img *ngIf="form.get('rutaImagen').value"
+                    class="align-self-center mt-2" 
+                    [src]="form.get('rutaImagen').value" 
+                    alt="" 
+                    width="50%" 
+                    height="50%"/>
+            </div>
+          </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-center mb-3">
+      <button mat-stroked-button class="mr-2" (click)="cancel()">CANCELAR</button>
+      <button mat-stroked-button type="submit" color="primary" >GUARDAR</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -9,10 +9,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
-import { CourseComponent} from "./course/course.component";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
@@ -25,8 +22,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { CourseResolver } from "./services/course.resolver";
-import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { environment } from '../environments/environment';
@@ -40,11 +35,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     declarations: [
         AppComponent,
         HomeComponent,
-        AboutComponent,
-        CourseComponent,
-        CoursesCardListComponent,
-        CourseDialogComponent,
-        LoginComponent
+        LoginComponent,
     ],
     imports: [
         BrowserModule,
@@ -69,16 +60,17 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
         MatDatepickerModule,
         MatMomentDateModule,
         ReactiveFormsModule,
+        FormsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
         AngularFirestoreModule,
         AngularFireStorageModule
     ],
     providers: [
-        CourseResolver
+        
     ],
     bootstrap: [AppComponent],
-    entryComponents: [CourseDialogComponent]
+    entryComponents: []
 })
 export class AppModule {
 }
