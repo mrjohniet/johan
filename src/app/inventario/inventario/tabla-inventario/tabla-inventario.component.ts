@@ -1,18 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 import { InventarioService } from 'app/inventario/services/inventario.service';
-
-export interface InventarioData {
-  id: number;
-  nombre: string;
-  precioUnitario: number;
-  existencias:number;
-  rutaImagen?:string;
-  talla?: string;
-}
-
+import { InventarioData } from 'app/models/inventario-data'
 
 @Component({
   selector: 'tabla-inventario',
@@ -27,7 +20,10 @@ export class TablaInventarioComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private inventarioService:InventarioService) {
+  constructor(
+    private inventarioService:InventarioService,
+    private router:Router,
+    public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -37,19 +33,26 @@ export class TablaInventarioComponent implements OnInit {
   obtenerInventario() {
     this.inventarioService.getAllInventory().subscribe(
       snaps => {
-        const inventarios:InventarioData[] = snaps.map(snap=>
-          {
-            return <InventarioData> {
-              id:snap.payload.doc.id,
-              ...snap.payload.doc.data() as InventarioData,
-            }
-          }  
-        )
+        const inventarios:InventarioData[] = snaps
         this.dataSource = new MatTableDataSource(inventarios);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
     );
+  }
+
+  edit(idInventario){
+    this.router.navigate(['/gestion-inventario/editar-inventario',{id:idInventario}])
+  }
+
+  deleteInventory(idInventario){
+    const dialogRef = this.dialog.open(DeleteDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.inventarioService.deleteInventory(idInventario);
+      }
+    });
   }
 
   applyFilter(event: Event) {
@@ -61,3 +64,20 @@ export class TablaInventarioComponent implements OnInit {
   }
 }
 
+
+@Component({
+  selector: 'delete-dialog',
+  templateUrl: 'delete-dialog/delete-dialog.html',
+})
+export class DeleteDialog {
+
+  constructor(public dialogRef: MatDialogRef<DeleteDialog>) {
+    
+  }
+  onYesClick(){
+    this.dialogRef.close(true);
+  }
+  onNoClick(){
+    this.dialogRef.close();
+  }
+}

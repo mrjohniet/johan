@@ -7,7 +7,7 @@
                 <mat-icon color="primary">inventory</mat-icon>
                 <span class="ml-2">Inventario</span>
             </a>
-            <a mat-list-item routerLink="login">
+            <a mat-list-item routerLink="/">
                 <mat-icon color="primary">shop</mat-icon>
                 <span class="ml-2">Tienda</span>
             </a>
@@ -21,11 +21,11 @@
         <div class="toolbar-tools">
 
             <button mat-icon-button (click)="start.open('mouse')">
-                <mat-icon>menu</mat-icon>
+                <mat-icon class="blanco">menu</mat-icon>
             </button>
 
             <div class="filler d-flex justify-content-center">
-                <h1>Hulk Store</h1>
+                <h1><a class="vinculo" routerLink="/">Hulk Store</a></h1>
             </div>
 
         </div>

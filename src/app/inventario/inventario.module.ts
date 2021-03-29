@@ -11,14 +11,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TablaInventarioComponent } from './inventario/tabla-inventario/tabla-inventario.component';
+import { DeleteDialog, TablaInventarioComponent } from './inventario/tabla-inventario/tabla-inventario.component';
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
+import { EditarInventarioComponent } from './inventario/editar-inventario/editar-inventario.component';
 
 @NgModule({
-  declarations: [InventarioComponent, CrearInventarioComponent, TablaInventarioComponent],
+  declarations: [InventarioComponent, CrearInventarioComponent, TablaInventarioComponent, EditarInventarioComponent, DeleteDialog],
   imports: [
     CommonModule,
     InventarioRoutingModule,
@@ -34,6 +35,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  entryComponents:[
+    DeleteDialog
   ]
+  
 })
 export class InventarioModule { }

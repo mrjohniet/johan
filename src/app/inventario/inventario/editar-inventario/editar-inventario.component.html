@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title class="titulo-secundario">Insertar Inventario</mat-card-title>
     </mat-card-header>
-    <mat-card-content class="px-5">
+    <mat-card-content class="px-5 mt-3">
         <div class="row">
           <div class="col-lg-6">
             <mat-form-field class="w-100">
@@ -51,7 +51,7 @@
                 <span>{{porcentaje / 100 | percent}}</span>
               </div>
               <img *ngIf="form.get('rutaImagen').value"
-                    class="align-self-center mt-2" 
+                    class="align-self-center mt-3" 
                     [src]="form.get('rutaImagen').value" 
                     alt="" 
                     width="50%" 

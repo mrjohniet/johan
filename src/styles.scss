@@ -3,6 +3,7 @@
 
 
 @import "~@angular/material/theming";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "~bootstrap";
 
 // Include non-theme styles for core.
@@ -12,33 +13,33 @@
 $primary: mat-palette($mat-green);
 
 $mat-custom-theme: (
-  50: #fff3e0,
-  100: #ffe0b2,
-  200: #ffcc80,
-  300: #ffb74d,
-  400: #ffa726,
-  500: #ff9800,
-  600: #fb8c00,
-  700: #f57c00,
-  800: #ef6c00,
-  900: #e65100,
-  A100: #ffd180,
-  A200: #ffab40,
-  A400: #ff9100,
-  A700: #ff6d00,
+  50: #eceff1,
+  100: #cfd8dc,
+  200: #b0bec5,
+  300: #90a4ae,
+  400: #78909c,
+  500: #607d8b,
+  600: #546e7a,
+  700: #455a64,
+  800: #37474f,
+  900: #263238,
+  A100: #cfd8dc,
+  A200: #b0bec5,
+  A400: #78909c,
+  A700: #455a64,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
     200: $dark-primary-text,
     300: $dark-primary-text,
-    400: $dark-primary-text,
+    400: $light-primary-text,
     500: $light-primary-text,
     600: $light-primary-text,
     700: $light-primary-text,
     800: $light-primary-text,
     900: $light-primary-text,
     A100: $dark-primary-text,
-    A200: $light-primary-text,
+    A200: $dark-primary-text,
     A400: $light-primary-text,
     A700: $light-primary-text,
   )
@@ -53,13 +54,37 @@ $theme: mat-light-theme($primary, $accent);
 // Include all theme styles for the components.
 @include angular-material-theme($theme);
 
+$gris:#e3e3e3;
+$verde:#2e7d32;
+$h1_size:1.25rem;
+$h2_size:1.15rem;
+
+.h1{
+  font-size: $h2_size;
+}
+
 .mat-drawer-content{
   // background: url(https://firebasestorage.googleapis.com/v0/b/johan-9cedc.appspot.com/o/hulk-background.jpg?alt=media&token=8fbfbc25-870c-44f5-ad60-e67eda61f8ae);
 }
 
-.mat-card {
+.mat-card, .articulo-card {
+
+    .titulo-secundario {
+      color:$verde;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .titulo{
+      font-size: 1rem;
+      text-align: left;
+    }
+
   .mat-card-header-text{
     margin:0 auto;
+  }
+  .bg-gray{
+    background-color: $gris;
   }
 }
 
@@ -77,4 +102,21 @@ $theme: mat-light-theme($primary, $accent);
       padding: 1rem;
       font-size: 0.95rem;
     }
+}
+
+.vinculo{
+  text-decoration:none;
+  color: inherit;
+  &:hover{
+    color:darkgreen;
+    text-decoration: none;
+  }
+}
+.blanco{
+  color: white;
+}
+
+.green-snackbar{
+  background-color: $verde;
+  color: white;
 }

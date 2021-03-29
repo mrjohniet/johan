@@ -22,20 +22,24 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';  
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { environment } from '../environments/environment';
-import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { CardArticuloComponent } from './home/card-articulo/card-articulo.component';
+import { ComprarArticuloComponent } from './home/comprar-articulo/comprar-articulo.component';
+
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
-        LoginComponent,
+        CardArticuloComponent,
+        ComprarArticuloComponent,
     ],
     imports: [
         BrowserModule,
@@ -44,6 +48,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
         MatButtonModule,
         MatIconModule,
         MatCardModule,
+        MatDialogModule,
         MatTabsModule,
         MatSidenavModule,
         MatListModule,
@@ -51,6 +56,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
         MatInputModule,
         MatTableModule,
         MatPaginatorModule,
+        MatSnackBarModule,
         MatSortModule,
         MatProgressSpinnerModule,
         MatProgressBarModule,
@@ -70,7 +76,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
         
     ],
     bootstrap: [AppComponent],
-    entryComponents: []
+   
 })
 export class AppModule {
 }

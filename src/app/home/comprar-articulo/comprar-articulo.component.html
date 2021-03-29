@@ -1,0 +1,33 @@
+<form [formGroup]="formComprar" (ngSubmit)="submit()">
+  <mat-card *ngIf="articulo" class="articulo-card mt-5">
+    <mat-card-content>
+      <div class="row">
+        <div class="col-lg-5 d-flex justify-content-center pt-3">
+          <img [src]="articulo.rutaImagen" alt="{{articulo.nombre}}" width="90%" height="auto" >
+        </div>
+        <div class="col-lg-7 d-flex  flex-column p-5">
+          <h2 class="titulo-secundario">{{articulo.nombre}}</h2>
+          <p>Precio unitario {{articulo.precioUnitario | currency}}</p>
+          <mat-form-field class="w-100 mt-3">
+            <mat-label>Cantidad a comprar</mat-label>
+            <input formControlName="cantidad" type="number" min="0" [max]="articulo.existencias" (change)="changeCantidad()"
+            matInput placeholder="Ex. 1" aria-label="Cantidad a comprar">
+            <mat-error *ngIf="formComprar.get('cantidad').hasError('max')">
+              La cantidad a comprar supera las existencias.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput
+              formControlName="numeroTarjeta" 
+              placeholder="Número de tarjeta de crédito">
+          </mat-form-field>
+          <p class="mt-5"><strong>Precio total:</strong> {{precioTotal.value | currency}} COP<p>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-center mb-3">
+      <button mat-stroked-button (click)="cancelar()">Cancelar</button>
+      <button mat-stroked-button color="primary">Pagar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
