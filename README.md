@@ -1,7 +1,9 @@
 
 # Hulk Store
 
-Esta prueba técnica consiste en la implementación de una aplicación web serverless desarrollada con Angular 10 cuyos servicios de back end , base de datos y hosting provee Firebase.
+Esta prueba técnica consiste en la implementación de una aplicación web serverless desarrollada con Angular 10 cuyos servicios de back end , base de datos y hosting provee Firebase. 
+
+Se hizo uso de varios componentes de Angular Material y para asegurar su correcta visualización en otros dispositivos de utilizó Bootstrap y Flex-Box.
 
 Consiste en los siguiente módulos, siguiendo la recomendación de hacer una implementación orientada a objetos:
 
