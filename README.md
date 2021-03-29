@@ -1,30 +1,28 @@
 
-# Installation pre-requisites
+Esta prueba técnica consiste en la implementación de una aplicación web serverless desarrollada con Angular 10 cuyos servicios de back end , base de datos y hosting provee Firebase.
 
-IMPORTANT: Please use NPM 5 or above, to make sure the package-lock.json is used.
+Consiste en los siguiente módulos, siguiendo la recomendación de hacer una implementación orientada a objetos:
 
-For running this project we need and npm installed on our machine. These are some tutorials to install node in different operating systems:
+1. Tienda de artículos : Permite visualizar el detalle de los artículos disponibles en inventario y realizar la compra.
+2. Gestión de inventarios : Permite ingresar inventario, modificar inventario existente, eliminar inventario, consultar el inventario.
 
-*Its important to install the latest version of Node*
+Las operaciones CRUD tienen un efecto inmediato en la interfaz de usuario ya que se aplican principios de programación reactiva y Firebase provee webSockets que mantienen actualizada la información con la base de datos.
 
-- [Install Node and NPM on Windows](https://www.youtube.com/watch?v=8ODS6RM6x7g)
-- [Install Node and NPM on Linux](https://www.youtube.com/watch?v=yUdHk-Dk_BY)
-- [Install Node and NPM on Mac](https://www.youtube.com/watch?v=Imj8PgG3bZU)
+# Requisitos de instalación
 
+Importante instalar la última versión de Node, Angular CLI.
 
-# Installing the Angular CLI
-
-With the following command the angular-cli will be installed globally in your machine:
+# Instalar Angular CLI
 
     npm install -g @angular/cli 
 
+# Instalar este repositorio
 
-# How To install this repository
-
-Its also possible to install the modules as usual using npm:
+Correr el siguiente comando para instalar todas las dependencias
 
     npm install 
 
-NPM 5 or above has the big advantage that if you use it you will be installing the exact same dependencies than I installed in my machine, so you wont run into issues caused by semantic versioning updates.
+Para una correcta implementación, las librerias en el package.json deben cumplir con las siguientes condiciones de versionamiento.
 
-This should take a couple of minutes. If there are issues, please post the complete error message in the Questions section of the course.
+Angular	Firebase	AngularFire
+10	       8	       ^6.0.4
